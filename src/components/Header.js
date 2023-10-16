@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "./Search";
+import AddForm from "./AddForm";
 
-function Header() {
+function Header({ onSearchListings, onSort, onAddListing }) {
   return (
     <header>
       <h1>
@@ -10,7 +11,9 @@ function Header() {
         </span>
         gregslist
       </h1>
-      <Search />
+      <Search onSearch={onSearchListings} onSort={onSort} />
+      <button onClick={onSort}>Sort by Location</button>
+      <AddForm onAddListing={onAddListing} />
     </header>
   );
 }
